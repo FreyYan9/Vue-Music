@@ -5,12 +5,13 @@ import Singer from 'com/singer/singer'
 import Search from 'com/search/search'
 import Recommend from 'com/recommend/recommend'
 
-console.log(Rank)
-
 Vue.use(Router)
 
 export default new Router({
     routes: [{
+            path: '/',
+            redirect: '/recommend'
+        }, {
             path: '/recommend',
             component: Recommend
         },

@@ -1,8 +1,8 @@
-<templat>
+<template>
 	<div class="rank">
 		<h1>Hello Rank</h1>
 	</div>
-</templat>
+</template>
 
 <script type="text/ecmascript-6">
 	export default {

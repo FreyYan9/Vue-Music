@@ -1,8 +1,8 @@
-<templat>
+<template>
 	<div class="search">
 		<h1>Hello search</h1>
 	</div>
-</templat>
+</template>
 
 <script>
 	export default {

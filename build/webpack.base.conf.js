@@ -3,7 +3,7 @@ var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
 
-function resolve (dir) {
+function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
 
@@ -22,20 +22,23 @@ module.exports = {
             // 'vue$': 'vue/dist/vue.js',
             'vue$': 'vue/dist/vue.js',
             '@': resolve('src'),
+            'api': resolve('src/api'),
+            'base': resolve('src/base'),
+            'com': resolve('src/components'),
             'common': resolve('src/common'),
-            'com': resolve('src/components')
         }
     },
     module: {
-        rules: [{
-                test: /\.(js|vue)$/,
-                loader: 'eslint-loader',
-                enforce: 'pre',
-                include: [resolve('src'), resolve('test')],
-                options: {
-                    formatter: require('eslint-friendly-formatter')
-                }
-            },
+        rules: [
+            // {
+            //         test: /\.(js|vue)$/,
+            //         loader: 'eslint-loader',
+            //         enforce: 'pre',
+            //         include: [resolve('src'), resolve('test')],
+            //         options: {
+            //             formatter: require('eslint-friendly-formatter')
+            //         }
+            //     },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',

@@ -5,6 +5,8 @@ import 'babel-polyfill'
 import App from './App'
 import router from './router'
 import fastclick from 'fastclick'
+import vueLazyLoad from 'vue-lazyload'
+
 
 import 'common/stylus/index.styl'
 
@@ -12,7 +14,12 @@ fastclick.attach(document.body)
 
 Vue.config.productionTip = false
 
-window.onerror = function (message, url, line, col, error) {
+// 图片懒加载
+Vue.use(vueLazyLoad, {
+	loading: require('common/image/default.png')
+});
+
+window.onerror = function(message, url, line, col, error) {
     alert(`${message}\n At ${line}:${col} of ${url}`)
 }
 
