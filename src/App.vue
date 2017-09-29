@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MHeader></MHeader>
+    <!-- <MHeader></MHeader> -->
     <Tab></Tab>
     <keep-alive>
       <router-view></router-view>

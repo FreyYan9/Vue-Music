@@ -31,7 +31,7 @@ export default {
             getSingerList().then((res) => {
                 if (res.code === ERR_OK) {
                     this.singerList = this._normalizeSinger(res.data.list)
-                    console.log(this.singerList);
+                    // console.log(this.singerList);
                 }
             });
         },
@@ -100,10 +100,10 @@ export default {
 
 </script>
 <style lang="stylus" scoped>
-.singer
-	position: fixed
-	width: 100%
-	top: 88px
-	bottom: 0
+#singer
+    position: fixed;
+    top: 88px;
+    bottom: 0;
+    width: 100%;
 
 </style>
