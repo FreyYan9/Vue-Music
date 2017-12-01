@@ -13,7 +13,7 @@ export default {
     props: {
         probeType: {
             type: Number,
-            default: 1
+            default: 3
         },
         click: {
             type: Boolean,
@@ -44,13 +44,24 @@ export default {
 
             this.scroll = new BScroll(this.$refs.wrapper, {
                 probeType: this.probeType,
-                click: this.click
+                click: this.click,
+                // probeType: 2
             });
 
+            this.scroll.on('beforeScrollStart', () => {
+            })
+
+            this.scroll.on('scrollEnd', () => {
+                if (this.scroll.y <= (this.scroll.maxScrollY + 50)) {
+                }
+            })
+            
+           
+
             if (this.listenScroll) {
-                this.scroll.on('scroll', (y) => {
-                    console.log(y)
-                    console.log(1)
+                let me = this
+                this.scroll.on('scroll', (pos) => {
+                    me.$emit('scroll', pos)
                 })
             }
 

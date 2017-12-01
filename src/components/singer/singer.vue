@@ -1,9 +1,10 @@
 <template>
     <div id="singer">
-        <Listview :data="singerList"></Listview>
+        <router-view></router-view>
+        <Listview @select="selectSinger" :data="singerList"></Listview>
         <div class="loading-wrapper" v-if="!singerList.length">
-			<Loading></Loading>
-		</div>
+            <Loading></Loading>
+        </div>
     </div>
 </template>
 <script>
@@ -15,6 +16,7 @@ import { ERR_OK } from 'api/config'
 import Loading from 'base/loading/loading'
 import Singer from 'common/js/singer'
 import Listview from 'base/listview/listview'
+import {mapMutations} from 'vuex'
 
 export default {
     name: 'Singer',
@@ -90,7 +92,17 @@ export default {
 
             return hot.concat(ret);
             return hot.concat(ret, oht);
-        }
+        },
+        selectSinger(singer){
+            this.setSinger(singer)
+
+            this.$router.push({
+                path: `/singer/${singer.id}`
+            })
+        },
+        ...mapMutations({
+            setSinger: 'SET_SINGER'
+        })
     },
     components: {
         Loading,
